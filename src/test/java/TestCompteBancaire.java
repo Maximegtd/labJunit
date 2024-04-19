@@ -2,8 +2,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.lab.CompteBancaire;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCompteBancaire {
 
@@ -28,15 +27,17 @@ public class TestCompteBancaire {
 
     @Test
     void testDebiterSoldeInsuffisant() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             cb.debiter(200);
         });
+        assertEquals("Solde insuffisant", exception.getMessage());
     }
 
     @Test
     void testCrediterNegatif() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             cb.crediter(-50);
         });
+        assertEquals("Montant négatif", exception.getMessage());
     }
 }
