@@ -23,4 +23,10 @@ public class TestCalculatrice {
         double p = c.product(10, 20);
         assertEquals(200, p);
     }
+
+    @Test
+    void testSoustraction() {
+        double s = c.soustraction(20, 10);
+        assertEquals(10, s);
+    }
 }
