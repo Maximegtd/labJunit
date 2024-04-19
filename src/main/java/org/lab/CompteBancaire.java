@@ -3,6 +3,8 @@ package org.lab;
 public class CompteBancaire {
     private double solde;
 
+    private Calculatrice c = new Calculatrice();
+
     public CompteBancaire(double solde) {
         this.solde = solde;
     }
@@ -11,7 +13,7 @@ public class CompteBancaire {
         if (montant > solde) {
             throw new IllegalArgumentException("Solde insuffisant");
         }
-        solde -= montant;
+        solde = c.soustraction(solde, montant);
         return solde;
     }
 
@@ -19,7 +21,7 @@ public class CompteBancaire {
         if (montant < 0) {
             throw new IllegalArgumentException("Montant négatif");
         }
-        solde += montant;
+        solde = c.somme(solde, montant);
         return solde;
     }
 }

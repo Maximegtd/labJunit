@@ -10,6 +10,10 @@ public class Calculatrice {
         return a + b;
     }
 
+    public double soustraction(double a, double b) {
+        return a - b;
+    }
+
     public double product(double a, double b) {
         return a * b;
     }
